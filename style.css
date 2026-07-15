@@ -34,17 +34,6 @@ body {
     align-items: center;
 }
 
-.dropdown {
-    position: relative;
-    background: white;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    padding: clamp(0.4rem, 0.5vw + 0.3rem, 0.7rem) clamp(0.6rem, 1vw + 0.4rem, 1.2rem);
-    font-size: clamp(0.8rem, 0.6rem + 0.5vw, 1rem);
-    cursor: pointer;
-    white-space: nowrap;
-}
-
 .date-picker {
     background: white;
     border: 1px solid #d1d5db;
@@ -228,17 +217,6 @@ body {
 
 .chart-bar.active {
     background: linear-gradient(to top, #ea580c, #fb923f);
-}
-
-.chart-bar-income {
-    background: #10b981;
-    margin-bottom: 4px;
-    border-radius: 4px;
-}
-
-.chart-bar-expense {
-    background: #ea580c;
-    border-radius: 4px;
 }
 
 .chart-labels {
@@ -502,6 +480,16 @@ body {
     font-weight: 600;
     border: none;
     cursor: pointer;
+}
+
+.btn-secondary {
+    background: #374151;
+    color: white
+}
+
+.btn-primary {
+    background: #3b82f6; 
+    color: white;
 }
 
 @keyframes fadeIn {

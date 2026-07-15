@@ -17,15 +17,14 @@
     <header class="header">
       <h1>Good Morning</h1>
       <div class="header-controls">
-        <div class="dropdown">Daily <i class="fas fa-chevron-down"></i></div>
         <div class="date-picker">
           <i class="fa-solid fa-calendar"></i>
-          7 july 2026
+          <span id="todayDate">7 july 2026</span>
         </div>
-        <div class="export-btn">
+        <button class="export-btn">
           <i class="fas fa-download"></i>
           Export
-        </div>
+        </button>
       </div>
     </header>
 
@@ -128,8 +127,19 @@
                 <div style="color: #10b981">Income: $894</div>
                 <div style="color: #ea5806">Expense: $768</div>
               </div>
-              <div class="chart-bar-income" style="height: 120px"></div>
-              <div class="chart-bar-expense" style="height: 80px"></div>
+              <div
+                class="chart-bar-income"
+                style="
+                  height: 120px;
+                  background: #10b981;
+                  margin-bottom: 4px;
+                  border-radius: 4px;
+                "
+              ></div>
+              <div
+                class="chart-bar-expense"
+                style="height: 80px; background: #ea580c; border-radius: 4px"
+              ></div>
             </div>
             <div class="chart-bar" style="height: 150px"></div>
             <div class="chart-bar" style="height: 90px"></div>
@@ -245,9 +255,15 @@
           <table class="transactions-table">
             <thead>
               <tr>
-                <th>Date <i class="fas fa-sort"></i></th>
-                <th>Category <i class="fas fa-sort"></i></th>
-                <th>Amount <i class="fas fa-sort"></i></th>
+                <th>
+                  Date <i class="fas fa-sort" style="cursor: pointer"></i>
+                </th>
+                <th>
+                  Category <i class="fas fa-sort" style="cursor: pointer"></i>
+                </th>
+                <th>
+                  Amount <i class="fas fa-sort" style="cursor: pointer"></i>
+                </th>
                 <th>Status</th>
                 <th>Action</th>
               </tr>
@@ -298,7 +314,7 @@
       <button
         class="fab"
         style="background: #10b981"
-        onclick="openIncomeModal()"
+        onclick="openModal('incomeModal')"
         title="Add Income"
       >
         <i class="fas fa-plus"></i>
@@ -307,7 +323,7 @@
       <button
         class="fab"
         style="background: #ef4444"
-        onclick="openExpenseModal()"
+        onclick="openModal('expenseModal')"
         title="Add Expense"
       >
         <i class="fas fa-minus"></i>
@@ -355,19 +371,6 @@
 
             <div class="form-group">
               <label class="form-label">
-                Description
-                <input
-                  type="text"
-                  class="form-input"
-                  id="incomeDescription"
-                  placeholder="Enter Description"
-                  required
-                />
-              </label>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">
                 Date
                 <input
                   type="date"
@@ -385,7 +388,7 @@
           <button class="btn btn-secondary" onclick="closeModal('incomeModal')">
             Cancel
           </button>
-          <button class="btn btn-primary" onclick="addIncome()">
+          <button class="btn btn-primary" onclick="addTransaction('income')">
             Add Income
           </button>
         </div>
@@ -434,19 +437,6 @@
 
             <div class="form-group">
               <label class="form-label">
-                Description
-                <input
-                  type="text"
-                  class="form-input"
-                  id="expenseDescription"
-                  placeholder="Enter Description"
-                  required
-                />
-              </label>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">
                 Date
                 <input
                   type="date"
@@ -464,15 +454,10 @@
           <button
             class="btn btn-secondary"
             onclick="closeModal('expenseModal')"
-            style="background: #374151; color: white"
           >
             Cancel
           </button>
-          <button
-            class="btn"
-            onclick="addExpense()"
-            style="background: #3b82f6; color: white"
-          >
+          <button class="btn btn-primary" onclick="addTransaction('expense')">
             Add Expense
           </button>
         </div>
